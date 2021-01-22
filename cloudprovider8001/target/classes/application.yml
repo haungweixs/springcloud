@@ -1,0 +1,57 @@
+server:
+  port: 8001
+
+
+spring:
+  application:
+    name: cloud-payemt-service
+  datasource:
+   type: com.zaxxer.hikari.HikariDataSource
+
+   url: jdbc:mysql://localhost:3306/cloudpivot?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+   username: root
+   password: 123456
+   hikari:
+    max-lifetime: 28800
+    connection-timeout: 3000
+    idle-timeout:  600000
+    maximum-pool-size:  10
+    connection-test-query: select 1
+    minimum-idle: 1
+   driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+swagger:
+  enable: true
+
+mybatis-plus:
+  #config-location: classpath:mybatis-config.xml mybatis配置文件
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.huangwei.springcloud.dao
+  global-config:
+    db-config:
+      #主键类型,参见com.baomidou.mybatisplus.annotation.IdType;
+      id-type: AUTO
+      #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"0, 参见com.baomidou.mybatisplus.annotation.FieldStrategy
+      insert-strategy: NOT_EMPTY
+      update-strategy: NOT_EMPTY
+      select-strategy: NOT_EMPTY
+      # table-prefix: 表名前缀
+    #不打印banner
+    banner: false
+  configuration:
+    #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+#    map-underscore-to-camel-case: true
+    cache-enabled: false
+#     打印sql日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+
+
+
+

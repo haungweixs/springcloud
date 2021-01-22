@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.alibaba.cloud:spring-cloud-alibaba-dependencies:unknown">
+    <CLASSES>
+      <root url="jar://F:/Maven/repository/com/alibaba/cloud/spring-cloud-alibaba-dependencies/unknown/spring-cloud-alibaba-dependencies-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://F:/Maven/repository/com/alibaba/cloud/spring-cloud-alibaba-dependencies/unknown/spring-cloud-alibaba-dependencies-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://F:/Maven/repository/com/alibaba/cloud/spring-cloud-alibaba-dependencies/unknown/spring-cloud-alibaba-dependencies-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
