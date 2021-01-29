@@ -1,9 +1,12 @@
 package com.huangwei.springcloud.service.impl;
 
+import com.alibaba.nacos.api.config.annotation.NacosConfigListener;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.huangwei.springcloud.dao.IteminfoDao;
 import com.huangwei.springcloud.entities.Iteminfo;
 import com.huangwei.springcloud.service.IteminfoService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,5 +15,4 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class IteminfoServiceImpl extends ServiceImpl<IteminfoDao,Iteminfo> implements IteminfoService {
-
 }

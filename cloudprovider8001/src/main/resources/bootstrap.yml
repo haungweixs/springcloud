@@ -1,0 +1,14 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-payemt-service
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        namespace: huangwei-dev
+        server-addr: 127.0.0.1:8848
+  profiles:
+    active: deveop

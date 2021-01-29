@@ -28,7 +28,7 @@ public class IteminfoController {
     @ApiOperation("查询测试功能")
     private Iteminfo queryIteminfo(@RequestBody String id)
     {
-        log.info("进入查询方法");
+        log.info("进入8001方法");
         return iteminfoService.getById(id);
     }
 

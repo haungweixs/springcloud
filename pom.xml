@@ -17,6 +17,7 @@
   <!--统一管理jar包和版本-->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.verison>2.2.4.RELEASE</project.verison>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <junit.version>4.12</junit.version>
@@ -26,6 +27,7 @@
     <druid.verison>1.1.16</druid.verison>
     <mybatisplus.verison>3.4.2</mybatisplus.verison>
     <swagger.verison>2.7.0</swagger.verison>
+    <nacos.verison>2.1.0.RELEASE</nacos.verison>
   </properties>
 
   <dependencyManagement>
@@ -37,6 +39,23 @@
       <version>2.2.2.RELEASE</version>
       <type>pom</type>
       <scope>import</scope>
+    </dependency>
+    <dependency>
+       <groupId>com.alibaba.cloud</groupId>
+       <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+       <version>${project.verison}</version>
+       <type>pom</type>
+       <scope>import</scope>
+    </dependency>
+    <dependency>
+           <groupId>com.alibaba.cloud</groupId>
+           <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+           <version>${nacos.verison}</version>
+    </dependency>
+    <dependency>
+           <groupId>com.alibaba.cloud</groupId>
+           <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+           <version>2.2.1.RELEASE</version>
     </dependency>
     <!--spring cloud Hoxton.SR1-->
     <dependency>
