@@ -1,10 +1,14 @@
 package com.huangwei.springcloud.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.huangwei.springcloud.entities.Iteminfo;
+import com.huangwei.springcloud.service.OrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,17 +26,14 @@ import javax.annotation.Resource;
 @Api(tags = "消费者")
 public class OrderController {
 
-    @Value("${server-url.cloud-payemt-service}")
-    public String PAYMENT_URL;
-
-    @Resource
-    private RestTemplate restTemplate;
+    @Autowired
+    OrderService orderService;
 
     @GetMapping("/query")
     @ApiOperation("消费者消费服务")
     private Iteminfo queryIteminfo(String id)
     {
-         return restTemplate.postForObject(PAYMENT_URL+"/querybyid",id,Iteminfo.class);
+        return orderService.queryIteminfo(id);
     }
 }
 

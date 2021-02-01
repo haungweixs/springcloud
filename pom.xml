@@ -28,6 +28,7 @@
     <mybatisplus.verison>3.4.2</mybatisplus.verison>
     <swagger.verison>2.7.0</swagger.verison>
     <nacos.verison>2.1.0.RELEASE</nacos.verison>
+    <sentinel.verison>2.1.0.RELEASE</sentinel.verison>
   </properties>
 
   <dependencyManagement>
@@ -39,6 +40,11 @@
       <version>2.2.2.RELEASE</version>
       <type>pom</type>
       <scope>import</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        <version>${sentinel.verison}</version>
     </dependency>
     <dependency>
        <groupId>com.alibaba.cloud</groupId>

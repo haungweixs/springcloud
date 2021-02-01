@@ -9,13 +9,19 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8082
+        port: 8719
 
 swagger:
   enable: true
 
 ##服务调用地址
 server-url:
-  cloud-payemt-service: http://localhost:8001/Iteminfo
+  provider-service-url: http://localhost:8001/Iteminfo
+
+
 
 
 management:
