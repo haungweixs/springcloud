@@ -10,5 +10,7 @@ spring:
         file-extension: yaml
         namespace: huangwei-dev
         server-addr: 127.0.0.1:8848
+        ##是否启用nacos自动配置
+        enabled: true
   profiles:
     active: deveop

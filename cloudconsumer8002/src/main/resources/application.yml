@@ -1,6 +1,6 @@
 
 server:
-  port: 80
+  port: 8002
 
 spring:
   application:
@@ -9,9 +9,10 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+        namespace: huangwei-dev
     sentinel:
       transport:
-        dashboard: localhost:8082
+        dashboard: localhost:8080
         port: 8719
 
 swagger:
@@ -24,11 +25,16 @@ server-url:
 
 
 
+
+
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+feign:
+  sentinel:
+    enabled: true
 
 
 

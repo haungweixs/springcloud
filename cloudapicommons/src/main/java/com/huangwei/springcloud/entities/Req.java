@@ -4,11 +4,10 @@ import lombok.Data;
 
 /**
  * Created by Hw
- * 21/01/22 10:25
+ * 21/02/03 14:13
  */
 @Data
-public class Iteminfo {
-    private String id;
-
-    private String memo;
+public class Req {
+   private String id;
+   private Integer type;
 }

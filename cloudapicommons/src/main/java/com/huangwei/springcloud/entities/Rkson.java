@@ -7,8 +7,15 @@ import lombok.Data;
  * 21/01/22 10:25
  */
 @Data
-public class Iteminfo {
+public class Rkson {
+
     private String id;
 
-    private String memo;
+
+    private String product;
+
+
+    private Integer quantity;
+
+    private String parentId;
 }
