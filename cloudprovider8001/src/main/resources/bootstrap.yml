@@ -1,6 +1,3 @@
-server:
-  port: 8001
-
 spring:
   application:
     name: cloud-payemt-service
@@ -9,9 +6,11 @@ spring:
       config:
         file-extension: yaml
         namespace: huangwei-dev
-        server-addr: 127.0.0.1:8848
         ##是否启用nacos自动配置
         enabled: true
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: huangwei-dev
   profiles:
     active: deveop
   rabbitmq:
@@ -19,6 +18,4 @@ spring:
     port: 5672
     username: rabbitmq
     password: rabbitmq
-    #虚拟host
     virtual-host: guest
-
