@@ -34,6 +34,19 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <!-- rabbitmq 依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.rabbitmq/amqp-client -->
+        <dependency>
+            <groupId>com.rabbitmq</groupId>
+            <artifactId>amqp-client</artifactId>
+            <version>5.9.0</version>
+        </dependency>
+
+
         <!-- MySql -->
         <dependency>
             <groupId>mysql</groupId>

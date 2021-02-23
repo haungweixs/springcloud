@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * Created by Hw
  * 21/01/22 10:25
  */
 @Data
 @TableName("ioilu_Sheet1612246972886")
-public class Rkson {
+public class Rkson implements Serializable {
 
     @TableId(type = IdType.AUTO)
     private String id;

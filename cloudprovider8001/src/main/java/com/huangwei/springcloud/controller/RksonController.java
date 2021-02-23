@@ -8,9 +8,11 @@ import com.huangwei.springcloud.service.RksonService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -23,10 +25,12 @@ import java.util.List;
 @Api(tags = "测试接口")
 public class RksonController {
 
-    @Autowired
+    @Resource
     RksonService rksonService;
-    @Autowired
+    @Resource
     CksonService cksonService;
+    @Resource
+    RabbitTemplate rabbitTemplate;
 
     @PostMapping("/querybyid")
     @ApiOperation("查询测试功能")
@@ -47,6 +51,8 @@ public class RksonController {
         if (id.equals("1")){
             throw new RuntimeException("报错");
         }else {
+            //将消息携带绑定键值:TestDirectRouting 发送到TestDirectExchange
+            rabbitTemplate.convertAndSend("TestDirectExchange","TestDirectRouting",rksonService.findRksonList());
             return ApiResult.success(rksonService.findRksonList());
         }
     }

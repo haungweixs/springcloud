@@ -14,3 +14,11 @@ spring:
         enabled: true
   profiles:
     active: deveop
+  rabbitmq:
+    host: 101.133.153.60
+    port: 5672
+    username: rabbitmq
+    password: rabbitmq
+    #虚拟host
+    virtual-host: guest
+
