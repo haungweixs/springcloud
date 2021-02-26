@@ -114,6 +114,7 @@
        <dependency>
            <groupId>org.springframework.boot</groupId>
            <artifactId>spring-boot-devtools</artifactId>
+           <version>2.2.2.RELEASE</version>
            <scope>runtime</scope>
            <optional>true</optional>
        </dependency>
@@ -137,6 +138,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>2.2.2.RELEASE</version>
         <configuration>
           <fork>true</fork>
           <addResources>true</addResources>

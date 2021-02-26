@@ -6,13 +6,15 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * Created by Hw
  * 21/02/02 15:06
  */
 @Data
 @TableName("iv9pp_product")
-public class Product {
+public class Product implements Serializable {
     @TableId(type = IdType.AUTO)
     private String id;
 

@@ -12,10 +12,10 @@ import java.util.List;
  * 21/02/23 15:13
  */
 @Component
-@RabbitListener(queues = "TestDirectQueue")
+//@RabbitListener(queues = "TestDirectQueue")
 public class DirectReceiverNew {
 
-    @RabbitHandler
+//    @RabbitHandler
     public void process(List<Rkson> rksonList)
     {
         for(Rkson rkson:rksonList){
