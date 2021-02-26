@@ -11,6 +11,7 @@ import com.huangwei.springcloud.service.RksonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -20,9 +21,9 @@ import java.util.List;
 @Service
 public class RksonServiceImpl extends ServiceImpl<RksonDao,Rkson> implements RksonService {
 
-    @Autowired
+    @Resource
     RksonService rksonService;
-    @Autowired
+    @Resource
     ProductService productService;
 
     @Override

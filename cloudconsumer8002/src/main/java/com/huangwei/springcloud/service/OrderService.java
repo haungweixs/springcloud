@@ -5,6 +5,7 @@ import com.huangwei.springcloud.entities.Req;
 import com.huangwei.springcloud.entities.Rkson;
 import com.huangwei.springcloud.service.impl.OrderServiceFallback;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import java.util.List;
  * Created by Hw
  * 21/02/01 15:07
  */
+@Component
 @FeignClient(name = "cloud-payemt-service",path = "/Iteminfo",fallback = OrderServiceFallback.class)
 public interface OrderService {
 
