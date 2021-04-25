@@ -24,4 +24,5 @@ public class Ckson {
 
     @TableField(value = "parentId")
     private String parentId;
+
 }

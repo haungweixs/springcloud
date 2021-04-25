@@ -6,7 +6,6 @@ spring:
     name: cloud-payemt-service
   datasource:
    type: com.zaxxer.hikari.HikariDataSource
-
    url: jdbc:mysql://101.133.153.60:3306/cloudpivot?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
    username: root
    password: test123456
@@ -18,13 +17,24 @@ spring:
     connection-test-query: select 1
     minimum-idle: 1
    driver-class-name: com.mysql.cj.jdbc.Driver
-#  cloud:
-#    nacos:
-#      discovery:
-#        server-addr: 127.0.0.1:8848
+   #是否启用热部署
+  devtools:
+    remote:
+      restart:
+        enabled: false
+
 
 swagger:
   enable: true
+
+http:
+  time-to-live: 20
+  max-total:  500
+  max-per-route: 500
+  connect-timeout: 3000
+  read-timeout: 5000
+  connection-request-timeout: 200 #连接不够用的等待时间，不宜过长
+  buffer-request-body: true
 
 
 mybatis-plus:
@@ -50,9 +60,9 @@ mybatis-plus:
 #    map-underscore-to-camel-case: true
     cache-enabled: false
 #     打印sql日志
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 #     关闭打印sql日志
-#    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
 
 management:
   endpoints:
@@ -62,6 +72,41 @@ management:
 
 
 
+##微信支付配置
+weixinpayconfig:
+  #商户应用appId
+  appid: 1515151
+  #商户ID
+  mch_id: 1515615656
+   #商户key：api秘钥（32位）
+  key: 151561656
+  #回调接口
+  notify_url:
+  #统一下单接口
+  url: https://api.mch.weixin.qq.com/pay/unifiedorder
+  #设备号1
+  device_info: WEB
+  wx_package: Sign=WXPay
+#
+##支付宝支付
+#pay:
+#  alipay:
+#    #统一下单接口
+#    gatewayUrl: https://openapi.alipay.com/gateway.do
+#    #商户应用id
+#    appid:
+#    #应用RSA私钥，用于对商户请求报文加签
+#    app-private-key:
+#    #支付宝RSA公钥，用于验签支付宝应答
+#    alipay-public-key:
+#    #支付成功的异步通知回调接口
+#    notify-url:
+#    # 应用公钥证书所在路径
+#    app-Public-Key-Cert:
+#    #支付宝公钥证书所在路径
+#    alipay-Public-Key-Cert:
+#    #支付宝根证书所在路径
+#    alipay-Root-Cert:
 
 
 

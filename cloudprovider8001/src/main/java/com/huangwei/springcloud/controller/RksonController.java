@@ -8,10 +8,12 @@ import com.huangwei.springcloud.service.RksonService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.util.SoftHashMap;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,24 +23,22 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequestMapping("/Iteminfo")
-@Api(tags = "测试接口")
+@Api(tags = "库存管理")
 public class RksonController {
 
     @Resource
     RksonService rksonService;
     @Resource
     CksonService cksonService;
-    @Resource
-    RabbitTemplate rabbitTemplate;
 
-    @PostMapping("/querybyid")
-    @ApiOperation("查询测试功能")
-    private ApiResult updateRepertory(@RequestBody Req req) {
-//        if (req.getType()==0){
-//          rksonService.updateProduct(req);
-//        }else {
-//          cksonService.updateProduct(req);
-//        }
+    @PostMapping("/updateInventory")
+    @ApiOperation("库存更新")
+    private ApiResult updateRepertory(Req req) {
+        if (req.getType()==0){
+          rksonService.updateProduct(req);
+        }else {
+          cksonService.updateProduct(req);
+        }
         return new ApiResult(req);
     }
 
@@ -48,8 +48,6 @@ public class RksonController {
         if (id.equals("1")) {
             throw new RuntimeException("报错");
         } else {
-            //将消息携带绑定键值:TestDirectRouting 发送到TestDirectExchange
-            rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", rksonService.findRksonList());
             return ApiResult.success(rksonService.findRksonList());
         }
     }

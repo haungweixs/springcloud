@@ -10,4 +10,5 @@ import lombok.Data;
 public class Req {
    private String id;
    private Integer type;
+   private String warehouse;
 }

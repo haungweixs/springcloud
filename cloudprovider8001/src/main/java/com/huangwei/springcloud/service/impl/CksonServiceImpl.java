@@ -8,8 +8,10 @@ import com.huangwei.springcloud.entities.Product;
 import com.huangwei.springcloud.entities.Req;
 import com.huangwei.springcloud.service.CksonService;
 import com.huangwei.springcloud.service.ProductService;
+import com.huangwei.springcloud.service.SublevelInventoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -25,8 +27,11 @@ public class CksonServiceImpl extends ServiceImpl<CksonDao,Ckson> implements Cks
     CksonService cksonService;
     @Resource
     ProductService productService;
+    @Resource
+    SublevelInventoryService inventoryService;
 
     @Override
+    @Transactional
     public List<Ckson> updateProduct(Req req) {
         Ckson ckson=new Ckson();
         QueryWrapper<Ckson> rksonWrapper=new QueryWrapper<>();
@@ -40,6 +45,7 @@ public class CksonServiceImpl extends ServiceImpl<CksonDao,Ckson> implements Cks
                 product.setQuantity(0-ck.getQuantity());
             }
             productService.updateById(product);
+            inventoryService.updateInventory(ck,req.getWarehouse());
         }
         return cksonList;
     }
